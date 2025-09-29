@@ -1,0 +1,16 @@
+html{
+    height:100%;
+}
+
+body{
+    background: linear-gradient(#006466, #4D194D);
+    display:flex;
+    justify-content: center;
+    height:100%;
+}
+
+.mainSect{
+    height: 500px;
+    width: 500px;
+    align-self: center;
+}
