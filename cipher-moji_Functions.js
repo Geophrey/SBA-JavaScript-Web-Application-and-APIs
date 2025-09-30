@@ -11,17 +11,23 @@ export const wordList = [
     "flow",
 ];
 
-export function emojifier(emojiArray){
-    let mysteryWord = wordList[Math.floor(Math.random() * 10)]
-    let emojifiedWord = ""
+export function emojifier(emojiArray) {
+    let mysteryWord = wordList[Math.floor(Math.random() * 10)];
+    let emojifiedWord = "";
 
-    mysteryWord = mysteryWord.split("")
-    for (let mysCount = 0, objCount = 0; mysCount < mysteryWord.length; mysCount++){
-        emojiArray.forEach(emojiObject => {
-            if (emojiObject.letterMatch.toLowerCase() == mysteryWord[mysCount]){
-            emojifiedWord += emojiObject.icon
-            //mysCount++
-        }
+    mysteryWord = mysteryWord.split("");
+    for (
+        let mysCount = 0, objCount = 0;
+        mysCount < mysteryWord.length;
+        mysCount++
+    ) {
+        emojiArray.forEach((emojiObject) => {
+            if (
+                emojiObject.letterMatch.toLowerCase() == mysteryWord[mysCount]
+            ) {
+                emojifiedWord += emojiObject.icon;
+                //mysCount++
+            }
         });
         // if (emojiArray[objCount].letterMatch.toLowerCase() == mysteryWord[mysCount]){
         //     emojifiedWord += emojiArray[objCount].icon
@@ -32,7 +38,7 @@ export function emojifier(emojiArray){
         // }
     }
 
-    return emojifiedWord
+    return emojifiedWord;
 
     //console.log(emojiArray[7].icon)
 }
@@ -49,7 +55,7 @@ export function randMoji(allEmojis) {
             name: allEmojis.data[randMoji].unicodeName,
             icon: allEmojis.data[randMoji].character,
             letterMatch: letterSet[y],
-            letterMatchIndex: y
+            letterMatchIndex: y,
         };
 
         emojiSet.push(emoji);
@@ -58,13 +64,39 @@ export function randMoji(allEmojis) {
     return emojiSet;
 }
 
-// export function setLetters() {
-//     const letterSet = [];
+// could refactor in the future to make this function work as an import
+// export function createGamePlayStage() {
+//     let gamePlayStage = document.createElement("div");
+//     gamePlayStage.classList.add("gamePlayStage");
+//     mainSection.appendChild(gamePlayStage);
 
-//     for (let l = 0; l < 26; l++) {
-//         const letter = {
-//             letter: ,
-//             index: l
-//         }
-//     }
+//     let mysteryWord = document.createElement("div");
+//     mysteryWord.setAttribute("id", "mysteryWord");
+//     mysteryWord.textContent = "Loading...";
+//     console.log(mysteryWord);
+//     gamePlayStage.appendChild(mysteryWord);
+
+//     let availableEmojis = document.createElement("div");
+//     availableEmojis.setAttribute("id", "availableEmojis");
+//     availableEmojis.textContent = ""; //"Available Emojis test placeholder";
+//     gamePlayStage.appendChild(availableEmojis);
+
+//     let mainUserInput = document.createElement("div");
+//     mainUserInput.setAttribute("id", "mainUserInput");
+//     gamePlayStage.appendChild(mainUserInput);
+//     // mainUserInput.textContent = "Main user input test placeholder"
+
+//     let guessBoxLabel = document.createElement("label");
+//     guessBoxLabel.for = "guessBox";
+//     guessBoxLabel.classList.add("gameplayStuff");
+//     mainUserInput.appendChild(guessBoxLabel);
+
+//     let guessTextBox = document.createElement("input");
+//     guessTextBox.type = "text";
+//     guessTextBox.classList.add("gameplayStuff");
+//     guessTextBox.setAttribute("id", "guessBox");
+//     guessTextBox.setAttribute("placeholder", "You have 1 attempt");
+//     mainUserInput.appendChild(guessTextBox);
+
+//     console.log(gamePlayStage);
 // }
