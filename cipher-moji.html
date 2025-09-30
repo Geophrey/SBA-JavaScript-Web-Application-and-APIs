@@ -1,16 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cipher-Moji</title>
-    <script type="module" src="./cipher-moji.js" defer></script>
-    <link rel="stylesheet" href="./cipher-moji.css">
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-</head>
-<body style="background-color: #10002b;">
-    <section class="mainSect" style="background-color: rgb(209, 145, 102);" width="300" height="300">
-        <p>Using: https://emoji-api.com/</p>
-    </section>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cipher-Moji</title>
+        <script type="module" src="./cipher-moji.js" defer></script>
+        <link rel="stylesheet" href="./cipher-moji.css" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    </head>
+    <body style="background-color: #10002b">
+        <section class="mainSect" id="mainSect" style="background-color: #57cc99">
+            <div class="introduction">
+                <h3 class="insideIntroElements">Welcome to Cipher-Moji!</h3>
+                <p class="insideIntroElements">
+                    The goal of this game is to guess the mystery word that has
+                    been encrypted with a random selection of emojis in one
+                    attempt!
+                </p>
+                <p class="insideIntroElements">
+                    Even though you have one chance you can guess the letter of
+                    an emoji in the list of randomly picked emojis to give you a
+                    better guessing chance
+                </p>
+                <div class="insideIntroElements" id="buttonStuff">
+                    <label for="startButton"
+                        >Click the button below to begin</label
+                    >
+                    <button class="insideIntroElements" id="startButton">
+                        START GAME!
+                    </button>
+                </div>
+            </div>
+
+            <!-- <div class="gamePlayStage">
+                <div class="insideGameElements" id="mysteryWord">test</div>
+
+                <div class="insideGameElements" id="availableEmojis">
+                    test test test test test test test test test
+                </div>
+
+                <div class="insideGameElements" id="mainUserInput">
+                    <label for="guessBox" class="gameplayStuff"
+                        >Type your guess!</label
+                    >
+                    <input
+                        type="text"
+                        class="gameplayStuff"
+                        id="guessBox"
+                        placeholder="You have 1 attempt"
+                    />
+                </div>
+            </div> -->
+        </section>
+        <!-- <p>Using: https://emoji-api.com/</p> -->
+    </body>
 </html>

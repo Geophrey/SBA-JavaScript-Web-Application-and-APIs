@@ -32,27 +32,83 @@ for (let y = 0; y < 26; y++) {}
 // }
 
 async function start() {
-    let testVariable = await axiosDefaults.get();
+    try {
+        let List_Of_All_Emojis = await axiosDefaults.get();
+        console.log(List_Of_All_Emojis);
+        let randMojiSet = randMoji(List_Of_All_Emojis)
+        console.log(randMojiSet)
+        console.log(emojifier(randMojiSet))
+    } catch (error) {
+        console.log(error)
+    }
     
-    //let testVariable2 = await axiosCategories.get();
-    // for (let y = 0; y < 26; y++) {
-    //     let randMoji = Math.floor(Math.random() * 1599);
-    //     emojiSet.push(testVariable.data[randMoji].character)
-    // }
-    console.log(testVariable);
-    // console.log(testVariable2);
-    // console.log(randMoji)
-    // console.log(testVariable.data[randMoji].character);
-    // console.log(testVariable.data[randMoji].unicodeName);
-    // console.log(emojiSet)
+    
+    // //let List_Of_All_Emojis2 = await axiosCategories.get();
+    // // for (let y = 0; y < 26; y++) {
+    // //     let randMoji = Math.floor(Math.random() * 1599);
+    // //     emojiSet.push(List_Of_All_Emojis.data[randMoji].character)
+    // // }
+    // console.log(List_Of_All_Emojis);
+    // // console.log(List_Of_All_Emojis2);
+    // // console.log(randMoji)
+    // // console.log(List_Of_All_Emojis.data[randMoji].character);
+    // // console.log(List_Of_All_Emojis.data[randMoji].unicodeName);
+    // // console.log(emojiSet)
 
-    let testArray = randMoji(testVariable)
+    // let randMojiSet = randMoji(List_Of_All_Emojis)
 
-    // console.log(randMoji(testVariable))
-    console.log(testArray)
-    // console.log(emojifier(randMoji(testVariable)))
-    console.log(emojifier(testArray))
+    // // console.log(randMoji(List_Of_All_Emojis))
+    // console.log(randMojiSet)
+    // // console.log(emojifier(randMoji(List_Of_All_Emojis)))
+    // console.log(emojifier(randMojiSet))
 
 }
 
 start();
+
+const startButton = document.getElementById("startButton")
+let mainSection = document.getElementById("mainSect")
+
+startButton.addEventListener("click", (event) => {
+    let thingToDelete = document.querySelectorAll("div")
+    while(thingToDelete[0].firstElementChild){
+        thingToDelete[0].firstElementChild.remove()
+    }
+    thingToDelete[0].remove()
+
+    console.log(mainSection)
+
+    let gamePlayStage = document.createElement("div")
+    gamePlayStage.classList.add("gamePlayStage")
+    mainSection.appendChild(gamePlayStage)
+
+    let mysteryWord = document.createElement("div")
+    mysteryWord.setAttribute("id", "mysteryWord");
+    mysteryWord.textContent = "Mystery word test placeholder"
+    console.log(mysteryWord)
+    gamePlayStage.appendChild(mysteryWord)
+
+    let availableEmojis = document.createElement("div")
+    availableEmojis.setAttribute("id", "availableEmojis");
+    availableEmojis.textContent = "Available Emojis test placeholder"
+    gamePlayStage.appendChild(availableEmojis)
+
+    let mainUserInput = document.createElement("div")
+    mainUserInput.setAttribute("id", "mainUserInput");
+    gamePlayStage.appendChild(mainUserInput)
+    // mainUserInput.textContent = "Main user input test placeholder"
+
+    let guessBoxLabel = document.createElement("label")
+    guessBoxLabel.for = "guessBox"
+    guessBoxLabel.classList.add("gameplayStuff")
+    mainUserInput.appendChild(guessBoxLabel)
+
+    let guessTextBox = document.createElement("input")
+    guessTextBox.type = "text"
+    guessTextBox.classList.add("gameplayStuff")
+    guessTextBox.setAttribute("id", "guessBox")
+    guessTextBox.setAttribute("placeholder", "You have 1 attempt")
+    mainUserInput.appendChild(guessTextBox)
+
+    console.log(gamePlayStage)
+})

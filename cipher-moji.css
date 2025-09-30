@@ -1,16 +1,90 @@
-html{
-    height:100%;
+html {
+    height: 100%;
 }
 
-body{
-    background: linear-gradient(#006466, #4D194D);
-    display:flex;
+body {
+    background: linear-gradient(#006466, #4d194d);
+    display: flex;
     justify-content: center;
-    height:100%;
+    height: 100%;
 }
 
-.mainSect{
+.mainSect {
+    border: 2px solid black;
     height: 500px;
-    width: 500px;
+    width: 700px;
     align-self: center;
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+}
+
+.gamePlayStage {
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    /* height:fit-content */
+}
+
+h3 {
+    width: fit-content;
+    align-self: center;
+    text-align: center;
+}
+
+#mysteryWord {
+    width: fit-content;
+    align-self: center;
+    text-align: center;
+}
+
+.insideIntroElements {
+    /* border: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#availableEmojis {
+    width: fit-content;
+    align-self: center;
+    text-align: center;
+}
+
+#buttonStuff {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+    width: fit-content;
+    justify-content: center;
+}
+
+#mainUserInput {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15%;
+    width: fit-content;
+    align-self: center;
+    justify-content: center;
+}
+
+.gameplayStuff {
+    width: fit-content;
+    align-self: center;
+}
+
+/* label{
+    display: flex;
+    flex-direction: column;
+} */
+
+button {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    width: 150px;
+    height: 25px;
+    justify-self: center;
 }
