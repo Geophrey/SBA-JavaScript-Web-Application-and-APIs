@@ -64,6 +64,25 @@ export function randMoji(allEmojis) {
     return emojiSet;
 }
 
+export function arrayScrambler(array) {
+    // scrambles the order of array elements
+    // using this so that the player can't connect the emojis to a letter by the order they appear on screen
+    // eg. first three emojis are a, b, and c but the scrambler will make sure they can't guess like that
+
+    for (let scrambleCount = 0; scrambleCount < 3; scrambleCount++) {
+        for (let i = array.length - 1; i > 0; i--) {
+            // Generate a random index 'j' between 0 and 'i' (inclusive)
+            const j = Math.floor(Math.random() * (i + 1));
+
+            // Swap elements at index 'i' and 'j'
+            [array[i], array[j]] = [array[j], array[i]];
+        }
+        // console.log(`Scramble Count = ${scrambleCount}`)
+    }
+
+    return array;
+}
+
 // could refactor in the future to make this function work as an import
 // export function createGamePlayStage() {
 //     let gamePlayStage = document.createElement("div");

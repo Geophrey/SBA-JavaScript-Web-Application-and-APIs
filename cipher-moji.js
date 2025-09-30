@@ -2,7 +2,8 @@ import {
     randMoji,
     emojifier,
     wordList,
-    createGamePlayStage
+    arrayScrambler
+    //createGamePlayStage
 } from "./cipher-moji_Functions.js";
 
 const API_KEY = "9bdb1f8b7be859e599793110b1e737762a9ce0b3";
@@ -42,8 +43,8 @@ async function start() {
             console.log(emojifier(randMojiSet));
 
             mysteryWord.textContent = emojifier(randMojiSet);
-            randMojiSet.forEach((emojiObj) => {
-                availableEmojis.textContent += emojiObj.icon + "    ";
+            arrayScrambler(randMojiSet).forEach((emojiObj) => {
+                availableEmojis.textContent += emojiObj.icon + " " + emojiObj.letterMatch + "   ";
             });
         }, 1000);
     } catch (error) {
