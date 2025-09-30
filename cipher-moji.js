@@ -42,10 +42,46 @@ async function start() {
             console.log(randMojiSet);
             console.log(emojifier(randMojiSet));
 
-            mysteryWord.textContent = emojifier(randMojiSet);
-            arrayScrambler(randMojiSet).forEach((emojiObj) => {
-                availableEmojis.textContent += emojiObj.icon + " " + emojiObj.letterMatch + "   ";
-            });
+            mysteryWord.textContent = emojifier(randMojiSet)[0];
+            let scrambledMojiSet = arrayScrambler(randMojiSet)
+            // arrayScrambler(randMojiSet).forEach((emojiObj) => {
+            //     availableEmojis.textContent += emojiObj.icon + " \n" + emojiObj.name + " \n" + emojiObj.letterMatch + "   ";
+            // });
+
+            // let emojiGroup = document.createElement("div")
+            // emojiGroup.classList.add("emojiGroup")
+            // emojiGroup.setAttribute("id", "index")
+            // console.log(emojiGroup)
+
+            for (let k = 0; k < 26; k++){
+                let emojiGroup = document.createElement("div")
+                emojiGroup.classList.add("emojiGroup")
+                emojiGroup.setAttribute("id", `index${k}`)
+                availableEmojis.appendChild(emojiGroup)
+
+                let emojiElement1 = document.createElement("p")
+                emojiElement1.classList.add("availableEmojisElements")
+                emojiElement1.setAttribute("id2", "icon")
+                emojiElement1.setAttribute("id", `emojiIcon${k}`)
+
+                let emojiElement2 = document.createElement("p")
+                emojiElement2.classList.add("availableEmojisElements")
+                emojiElement2.setAttribute("id", `emojiName${k}`)
+
+                let emojiElement3 = document.createElement("p")
+                emojiElement3.classList.add("availableEmojisElements")
+                emojiElement3.setAttribute("id", `emojiAnswerCheck${k}`)
+
+                emojiGroup.appendChild(emojiElement1)
+                emojiGroup.appendChild(emojiElement2)
+                emojiGroup.appendChild(emojiElement3)
+
+                emojiElement1.textContent = scrambledMojiSet[k].icon
+                emojiElement2.textContent = scrambledMojiSet[k].name
+                //emojiElement3.textContent = scrambledMojiSet[k].
+            }
+
+            console.log(availableEmojis)
         }, 1000);
     } catch (error) {
         console.log(error);
@@ -118,6 +154,19 @@ startButton.addEventListener("click", (event) => {
     guessTextBox.setAttribute("id", "guessBox");
     guessTextBox.setAttribute("placeholder", "You have 1 attempt");
     mainUserInput.appendChild(guessTextBox);
+
+    // for (let k = 0; k < 26; k++){
+    //     let emojiGroup = document.createElement("div").classList.add("emojiGroup").setAttribute("id", `index${k}`)
+    //     availableEmojis.appendChild(emojiGroup)
+
+    //     let emojiElement1 = document.createElement("p").classList.add("availableEmojisElements").setAttribute("id", `emojiIcon${k}`)
+    //     let emojiElement2 = document.createElement("p").classList.add("availableEmojisElements").setAttribute("id", `emojiName${k}`)
+    //     let emojiElement3 = document.createElement("p").classList.add("availableEmojisElements").setAttribute("id", `emojiAnswerCheck${k}`)
+
+    //     emojiGroup.appendChild(emojiElement1)
+    //     emojiGroup.appendChild(emojiElement2)
+    //     emojiGroup.appendChild(emojiElement3)
+    // }
 
     console.log(gamePlayStage);
 });

@@ -49,9 +49,23 @@ h3 {
 }
 
 #availableEmojis {
+    display:flex;
     width: fit-content;
     align-self: center;
     text-align: center;
+    font-size: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+    /* justify-content: space-between; */
+    /* flex-direction: row; */
+}
+
+#emojiGroup{
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+[id2 = "icon"]{
     font-size: 20px;
 }
 

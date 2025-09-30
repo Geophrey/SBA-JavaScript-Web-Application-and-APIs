@@ -15,15 +15,15 @@ export function emojifier(emojiArray) {
     let mysteryWord = wordList[Math.floor(Math.random() * 10)];
     let emojifiedWord = "";
 
-    mysteryWord = mysteryWord.split("");
+    let mysteryWordArray = mysteryWord.split("");
     for (
         let mysCount = 0, objCount = 0;
-        mysCount < mysteryWord.length;
+        mysCount < mysteryWordArray.length;
         mysCount++
     ) {
         emojiArray.forEach((emojiObject) => {
             if (
-                emojiObject.letterMatch.toLowerCase() == mysteryWord[mysCount]
+                emojiObject.letterMatch.toLowerCase() == mysteryWordArray[mysCount]
             ) {
                 emojifiedWord += emojiObject.icon;
                 //mysCount++
@@ -38,7 +38,7 @@ export function emojifier(emojiArray) {
         // }
     }
 
-    return emojifiedWord;
+    return [emojifiedWord, mysteryWord];
 
     //console.log(emojiArray[7].icon)
 }
