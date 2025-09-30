@@ -1,3 +1,5 @@
+import { randMoji, emojifier, wordList as mainWordList } from "./cipher-moji_Functions.js";
+
 const API_KEY = "9bdb1f8b7be859e599793110b1e737762a9ce0b3";
 
 let axiosDefaults = axios.create({
@@ -31,17 +33,26 @@ for (let y = 0; y < 26; y++) {}
 
 async function start() {
     let testVariable = await axiosDefaults.get();
+    
     //let testVariable2 = await axiosCategories.get();
-    for (let y = 0; y < 26; y++) {
-        let randMoji = Math.floor(Math.random() * 1599);
-        emojiSet.push(testVariable.data[randMoji].character)
-    }
+    // for (let y = 0; y < 26; y++) {
+    //     let randMoji = Math.floor(Math.random() * 1599);
+    //     emojiSet.push(testVariable.data[randMoji].character)
+    // }
     console.log(testVariable);
-    console.log(testVariable2);
+    // console.log(testVariable2);
     // console.log(randMoji)
     // console.log(testVariable.data[randMoji].character);
     // console.log(testVariable.data[randMoji].unicodeName);
-    console.log(emojiSet)
+    // console.log(emojiSet)
+
+    let testArray = randMoji(testVariable)
+
+    // console.log(randMoji(testVariable))
+    console.log(testArray)
+    // console.log(emojifier(randMoji(testVariable)))
+    console.log(emojifier(testArray))
+
 }
 
 start();
